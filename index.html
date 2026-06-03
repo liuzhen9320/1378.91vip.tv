@@ -1,68 +1,135 @@
 <!doctype html>
 <html lang="zh-CN">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>访问验证</title>
-  <link rel="icon" type="image/png" href="https://umm.932.moe/p/kPQZbFk4J" />
-  <style>
-    body {
-      margin: 0;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: sans-serif;
-    }
-    main {
-      width: 280px;
-      padding: 16px;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      background: #fff;
-    }
-    h1 {
-      margin: 0 0 12px;
-      font-size: 18px;
-      text-align: center;
-    }
-    form {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-    input,
-    button {
-      height: 36px;
-      padding: 0 10px;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-      font-size: 14px;
-    }
-    button {
-      cursor: pointer;
-      background: #f5f5f5;
-    }
-  </style>
-</head>
-<body>
-  <main>
-    <h1>访问验证</h1>
-    <form id="gateForm">
-      <input id="gatePassword" type="password" placeholder="请输入密码" autocomplete="off" />
-      <button type="submit">~❤️ 立即进入 ❤️~</button>
-    </form>
-  </main>
-  <script>
-    document.getElementById("gateForm").addEventListener("submit", (event) => {
-      event.preventDefault();
-      if (document.getElementById("gatePassword").value === "91vip") {
-        location.href = "home.html";
-        return;
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>访问验证</title>
+    <link rel="icon" type="image/png" href="https://umm.932.moe/p/kPQZbFk4J" />
+    <style>
+      :root {
+        --bg-color: #f5f5f5;
+        --card-bg: #fff;
+        --border-color: #ddd;
+        --text-color: #333;
+        --input-bg: #fff;
+        --input-border: #ccc;
+        --btn-bg: #f5f5f5;
+        --btn-text: #333;
       }
-      alert("密码错误，请重试");
-      document.getElementById("gatePassword").select();
-    });
-  </script>
-</body>
+
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --bg-color: #1a1a1a;
+          --card-bg: #252525;
+          --border-color: #333;
+          --text-color: #e0e0e0;
+          --input-bg: #333;
+          --input-border: #444;
+          --btn-bg: linear-gradient(135deg, #ff4d4f, #ff7875);
+          --btn-text: #fff;
+        }
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: sans-serif;
+        background-color: var(--bg-color);
+        color: var(--text-color);
+        transition:
+          background-color 0.3s,
+          color 0.3s;
+      }
+      main {
+        width: 280px;
+        padding: 16px;
+        border: 1px solid var(--border-color);
+        border-radius: 8px;
+        background: var(--card-bg);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        transition:
+          background-color 0.3s,
+          border-color 0.3s;
+      }
+      h1 {
+        margin: 0 0 12px;
+        font-size: 18px;
+        text-align: center;
+        color: #ff4d4f;
+        font-weight: bold;
+      }
+      form {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+      input,
+      button {
+        height: 36px;
+        padding: 0 10px;
+        border: 1px solid var(--input-border);
+        border-radius: 6px;
+        font-size: 14px;
+        background: var(--input-bg);
+        color: var(--text-color);
+        transition:
+          background-color 0.3s,
+          border-color 0.3s,
+          color 0.3s;
+      }
+      input::placeholder {
+        color: #888;
+      }
+      button {
+        cursor: pointer;
+        background: var(--btn-bg);
+        color: var(--btn-text);
+        border: none;
+        font-weight: bold;
+        transition:
+          transform 0.1s,
+          opacity 0.3s;
+      }
+      button:hover {
+        transform: scale(1.02);
+        opacity: 0.9;
+      }
+      button:active {
+        transform: scale(0.98);
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>🔥 站长推荐 🔥</h1>
+      <form id="gateForm">
+        <input
+          id="gatePassword"
+          type="password"
+          placeholder="输入密钥解锁"
+          autocomplete="off"
+        />
+        <button type="submit">⚡ 立即进入 ⚡</button>
+      </form>
+    </main>
+    <script>
+      (function () {
+        document.cookie.includes("de2b5c45=") &&
+          (document.cookie = "de2b5c45=; max-age=0");
+        document.getElementById("gateForm").onsubmit = function (e) {
+          e.preventDefault();
+          if (document.getElementById("gatePassword").value === "114514") {
+            document.cookie = `de2b5c45=${document.getElementById("gatePassword").value}; max-age=604800`;
+            location.href = "/home";
+          } else {
+            alert("密码错误");
+            document.getElementById("gatePassword").select();
+          }
+        };
+      })();
+    </script>
+  </body>
 </html>
